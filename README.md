@@ -73,6 +73,15 @@ npm run lint
 
 ESLint is also run automatically in CI on pull requests to `main`.
 
+## Coding standards
+
+The repository guidance lives in [.github/instructions/](.github/instructions/). Follow these conventions when editing code:
+
+- Comment intent, not mechanics; update or remove stale comments when the code changes.
+- Add TSDoc/JSDoc to every exported function in `db/` and `src/lib/`, including a description of parameters and return values.
+- Document reusable `.astro` component `Props` interfaces so component contracts are self-explanatory.
+- Use the repository's TypeScript formatting conventions: semicolons, single quotes, and no trailing whitespace. ESLint enforces these rules.
+
 ## Type checking
 
 The project runs on **TypeScript 7** (the native Go compiler, `tsgo`) for type checking, adopted side-by-side via the [`@typescript/native-preview`](https://www.npmjs.com/package/@typescript/native-preview) package. The classic `typescript` package is intentionally kept at v6 so ESLint + `typescript-eslint` and `astro check` keep working unchanged — TypeScript 7's programmatic API isn't ready for those tools yet.

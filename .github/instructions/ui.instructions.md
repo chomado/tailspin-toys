@@ -51,6 +51,13 @@ Refer to technology-specific instruction files:
 - Use props for configuration, not duplication
 - Document component APIs with TypeScript types
 
+### Documentation and comments
+
+- Comment intent, not mechanics. Explain why a block exists, what decision it captures, or why a non-obvious approach was chosen.
+- Avoid comments that merely restate the code below them.
+- Treat outdated comments as bugs: update or remove them in the same change that touches the related code.
+- Keep reusable component contracts explicit by documenting the purpose of a component and its props.
+
 ## Development Workflow
 
 1. **Choose the right tool**: 

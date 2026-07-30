@@ -106,6 +106,12 @@ const game = await getGameById(getDatabase(), Number(id));
 
 There is no Svelte/React layer. When a page genuinely needs client behaviour, add a scoped Astro `<script>` using standard DOM APIs. Prefer native interactive elements (`<button>`, `<a href>`) so keyboard and focus behaviour come for free.
 
+## Documentation and component contracts
+
+- Reusable `.astro` components should define a `Props` interface in frontmatter and document it with a short TSDoc/JSDoc comment that explains the component's purpose and the role of each prop.
+- Keep comments focused on intent, trade-offs, or non-obvious behavior; avoid restating the markup or prop names.
+- Update or remove outdated comments whenever a component changes.
+
 ## TypeScript
 
 - Use TypeScript for type-safe props
@@ -113,6 +119,7 @@ There is no Svelte/React layer. When a page genuinely needs client behaviour, ad
 - Type component imports and helper return values
 - Run `npx astro sync` to (re)generate route/content types before linting or type-checking
 - `.astro` files are type-checked by `npm run typecheck:astro` (which runs `astro sync` then `astro check`), on the classic `typescript` package. The pure TypeScript in `db/`, `src/lib/`, and `src/types/` is type-checked separately by `npm run typecheck` (the native TS 7 compiler, `tsgo`), which does **not** process `.astro` files.
+- Follow the repository's formatting conventions in TypeScript/frontmatter code: semicolons, single quotes, and no trailing whitespace. ESLint enforces these rules.
 
 ## Best Practices
 

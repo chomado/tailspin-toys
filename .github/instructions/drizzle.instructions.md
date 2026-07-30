@@ -18,6 +18,20 @@ The app's data lives in a local SQLite database accessed through **Drizzle ORM**
 - `src/lib/db.ts` — `createDatabase(url)` / `getDatabase()` build the Drizzle client from `DATABASE_URL` (defaults to a local file under `.data/`).
 - `src/lib/games.ts` — typed, **injectable-db** data-access helpers used by pages and tests.
 
+## Documentation requirements
+
+- Every exported function in `db/` and `src/lib/` must have a JSDoc/TSDoc comment that explains its purpose, parameters, and return value.
+- When a helper accepts an injectable `db` argument, document why the parameter exists and how it supports testability.
+- Keep comments focused on intent and public contract; do not repeat the implementation line by line.
+- Treat outdated docs as a bug: update or remove them whenever the helper changes.
+
+```ts
+/** Return every game id sorted by title so build output stays deterministic. */
+export async function getAllGameIds(db: Database): Promise<number[]> {
+  // implementation
+}
+```
+
 ## Schema Conventions
 
 - Use `sqliteTable` with explicit column names (`text`, `integer`, `real`).

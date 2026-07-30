@@ -77,6 +77,11 @@ describe('getAllGames', () => {
 - Ordering guarantees (alphabetical by title) — static builds depend on this being deterministic
 - Determinism of seed-derived values
 
+## Comments and documentation
+
+- Use comments in tests only when they explain intent, setup rationale, or a non-obvious edge case.
+- Do not add comments that restate the test title or mirror the assertion itself.
+
 ## Best Practices
 
 - Follow Arrange-Act-Assert.
