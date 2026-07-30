@@ -8,6 +8,10 @@ interface Props {
 }
 
 const { game } = Astro.props;
+const ratingStars =
+    game.starRating === null
+        ? null
+        : Array.from({ length: 5 }, (_, index) => (index < game.starRating! ? '★' : '☆')).join('');
 ---
 
 <a
@@ -38,6 +42,16 @@ const { game } = Astro.props;
             )}
 
             <p class="text-slate-400 mb-4 text-sm line-clamp-2" data-testid="game-description">{game.description}</p>
+
+            <div class="mb-4 text-sm" data-testid="game-rating">
+                {game.starRating === null ? (
+                    <span class="text-slate-400">No rating yet</span>
+                ) : (
+                    <span class="text-amber-400" aria-label={`${game.starRating} out of 5 stars`}>
+                        {ratingStars}
+                    </span>
+                )}
+            </div>
 
             <div class="mt-4 text-sm text-blue-400 font-medium flex items-center">
                 <span>View details</span>
